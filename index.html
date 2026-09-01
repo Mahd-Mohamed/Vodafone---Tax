@@ -545,6 +545,37 @@
 <span class="text-label-md font-bold text-white leading-tight block">ACP</span>
 </div>
 </div>
+<!-- Flex Consumption Info -->
+<div class="mt-10">
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="bg-vodafone-red px-6 md:px-8 py-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-white">info</span>
+<h2 class="text-headline-md font-headline-md text-white">استهلاك رصيد Flex</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-6 md:p-8">
+<div class="bg-vodafone-red/10 rounded-xl p-5 text-center">
+<span class="material-symbols-outlined text-3xl text-vodafone-red block mb-2">call</span>
+<span class="text-label-md font-label-md text-on-surface font-bold block">Voice On-Net</span>
+<span class="text-label-md font-label-md text-vodafone-red block mt-1" dir="ltr">1 Flex / Min</span>
+</div>
+<div class="bg-vodafone-red/10 rounded-xl p-5 text-center">
+<span class="material-symbols-outlined text-3xl text-vodafone-red block mb-2">call_made</span>
+<span class="text-label-md font-label-md text-on-surface font-bold block">Voice Cross-Net</span>
+<span class="text-label-md font-label-md text-vodafone-red block mt-1" dir="ltr">5 Flex / Min</span>
+</div>
+<div class="bg-vodafone-red/10 rounded-xl p-5 text-center">
+<span class="material-symbols-outlined text-3xl text-vodafone-red block mb-2">sms</span>
+<span class="text-label-md font-label-md text-on-surface font-bold block">SMS On-Net or X-Net</span>
+<span class="text-label-md font-label-md text-vodafone-red block mt-1" dir="ltr">1 Flex / 1 SMS</span>
+</div>
+<div class="bg-vodafone-red/10 rounded-xl p-5 text-center">
+<span class="material-symbols-outlined text-3xl text-vodafone-red block mb-2">wifi</span>
+<span class="text-label-md font-label-md text-on-surface font-bold block">Mobile Internet</span>
+<span class="text-label-md font-label-md text-vodafone-red block mt-1" dir="ltr">1 Flex / MB</span>
+</div>
+</div>
+</div>
+</div>
 </div>
 <!-- RED Tab Content -->
 <div id="packages-red" class="hidden max-w-6xl mx-auto">
@@ -772,16 +803,17 @@
 </div>
 </div>
 </div>
+<!-- Conversion + Required Documents Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-10">
 <!-- Line Conversion Section -->
-<div class="mt-10">
-<div class="bg-gradient-to-b from-gray-600 to-gray-800 rounded-2xl shadow-md overflow-hidden">
-<div class="px-6 md:px-8 py-6">
+<div class="bg-gradient-to-b from-gray-600 to-gray-800 rounded-2xl shadow-md overflow-hidden flex flex-col">
+<div class="px-6 md:px-8 py-6 flex flex-col flex-grow">
 <div class="flex items-center gap-3 mb-2">
 <span class="material-symbols-outlined text-3xl text-white">swap_vert</span>
 <h2 class="text-headline-md font-headline-md text-white">تحويل خطك من Prepaid إلى Postpaid</h2>
 </div>
 <p class="text-label-md font-label-md text-secondary-fixed-dim mb-6">ينفع تحويل خطك من prepaid ل postpaid بسهولة</p>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+<div class="grid grid-cols-1 gap-4 mt-auto">
 <div class="bg-white/10 rounded-xl p-5 flex items-center gap-4">
 <span class="material-symbols-outlined text-3xl text-white shrink-0">check_circle</span>
 <div>
@@ -794,6 +826,45 @@
 <div>
 <span class="text-label-md font-label-md text-white font-bold block">لو خطك لسه متمش شهرين</span>
 <span class="text-body-md font-body-md text-secondary-fixed-dim">رسوم تحويل بقيمة 100 LE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Required Documents Section -->
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant shadow-sm overflow-hidden flex flex-col">
+<div class="bg-vodafone-red px-6 md:px-8 py-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-white">description</span>
+<h2 class="text-headline-md font-headline-md text-white" dir="ltr">Required documents of postpaid</h2>
+</div>
+<div class="p-6 md:p-8 flex flex-col flex-grow">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-auto" dir="ltr">
+<div class="bg-vodafone-red/10 rounded-xl p-5 flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl text-vodafone-red shrink-0">person</span>
+<div>
+<span class="text-label-md font-label-md text-on-surface font-bold block">18 years</span>
+<span class="text-label-sm font-label-sm text-secondary">Minimum age required</span>
+</div>
+</div>
+<div class="bg-vodafone-red/10 rounded-xl p-5 flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl text-vodafone-red shrink-0">home</span>
+<div>
+<span class="text-label-md font-label-md text-on-surface font-bold block">Landline</span>
+<span class="text-label-sm font-label-sm text-secondary">Required</span>
+</div>
+</div>
+<div class="bg-vodafone-red/10 rounded-xl p-5 flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl text-vodafone-red shrink-0">document_scanner</span>
+<div>
+<span class="text-label-md font-label-md text-on-surface font-bold block">ATP</span>
+<span class="text-label-sm font-label-sm text-secondary">Required</span>
+</div>
+</div>
+<div class="bg-vodafone-red/10 rounded-xl p-5 flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl text-vodafone-red shrink-0">search</span>
+<div>
+<span class="text-label-md font-label-md text-on-surface font-bold block">Ro Search</span>
+<span class="text-label-sm font-label-sm text-secondary">Required</span>
 </div>
 </div>
 </div>
