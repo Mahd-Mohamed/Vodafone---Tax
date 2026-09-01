@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>حاسبة ضرائب الاتصالات - TaxCalc Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "secondary-fixed-dim": "#c8c6c6",
+                "primary-container": "#e60000",
+                "on-error": "#ffffff",
+                "deep-black": "#000000",
+                "on-primary": "#ffffff",
+                "surface-bright": "#f9f9f9",
+                "inverse-on-surface": "#f1f1f1",
+                "primary": "#b70100",
+                "surface-dim": "#dadada",
+                "outline-variant": "#e9bcb5",
+                "inverse-surface": "#2f3131",
+                "tertiary-container": "#0068f9",
+                "background": "#f9f9f9",
+                "vodafone-red": "#E60000",
+                "secondary-fixed": "#e4e2e1",
+                "on-background": "#1a1c1c",
+                "surface-container-low": "#f3f3f3",
+                "silver-gray": "#CCCCCC",
+                "on-primary-container": "#fff7f5",
+                "surface-variant": "#e2e2e2",
+                "on-error-container": "#93000a",
+                "on-secondary": "#ffffff",
+                "tertiary-fixed-dim": "#b2c5ff",
+                "surface-container": "#eeeeee",
+                "on-surface-variant": "#5f3f3a",
+                "on-surface": "#1a1c1c",
+                "on-tertiary-container": "#f8f7ff",
+                "tertiary": "#0051c6",
+                "on-secondary-container": "#656464",
+                "error-container": "#ffdad6",
+                "on-tertiary-fixed-variant": "#0040a0",
+                "tertiary-fixed": "#dae2ff",
+                "primary-fixed": "#ffdad4",
+                "on-primary-fixed": "#410000",
+                "on-primary-fixed-variant": "#930100",
+                "error": "#ba1a1a",
+                "on-tertiary": "#ffffff",
+                "surface-container-high": "#e8e8e8",
+                "outline": "#946e68",
+                "surface-container-highest": "#e2e2e2",
+                "on-secondary-fixed": "#1b1c1c",
+                "on-tertiary-fixed": "#001847",
+                "on-secondary-fixed-variant": "#474747",
+                "surface": "#f9f9f9",
+                "surface-tint": "#c00000",
+                "soft-white": "#F9F9F9",
+                "surface-container-lowest": "#ffffff",
+                "secondary-container": "#e4e2e1",
+                "inverse-primary": "#ffb4a8",
+                "secondary": "#5f5e5e",
+                "primary-fixed-dim": "#ffb4a8"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "section-gap": "80px",
+                "gutter": "24px",
+                "margin-desktop": "48px",
+                "base": "8px",
+                "margin-mobile": "20px",
+                "container-max": "1280px"
+        },
+        "fontFamily": {
+                "label-md": [
+                        "Cairo"
+                ],
+                "body-md": [
+                        "Cairo"
+                ],
+                "label-sm": [
+                        "Cairo"
+                ],
+                "headline-lg-mobile": [
+                        "Cairo"
+                ],
+                "display-lg": [
+                        "Cairo"
+                ],
+                "headline-lg": [
+                        "Cairo"
+                ],
+                "headline-md": [
+                        "Cairo"
+                ],
+                "body-lg": [
+                        "Cairo"
+                ]
+        },
+        "fontSize": {
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom toggle styling */
+        .toggle-switch {
+            width: 100%;
+            height: 64px;
+            background-color: #e4e2e1; /* secondary-container */
+            border-radius: 9999px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .toggle-thumb {
+            position: absolute;
+            top: 4px;
+            bottom: 4px;
+            width: calc(50% - 8px);
+            background-color: #e60000; /* primary-container */
+            border-radius: 9999px;
+            inset-inline-start: 4px;
+            transition: inset-inline-start 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+        }
+        .toggle-text-container {
+            display: flex;
+            position: absolute;
+            inset: 0;
+            z-index: 20;
+            pointer-events: none;
+        }
+        .toggle-text {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Cairo", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            transition: color 0.3s;
+            text-align: center;
+            white-space: nowrap;
+        }
+        @media (min-width: 640px) {
+            .toggle-text {
+                font-size: 20px;
+            }
+        }
+        
+        /* State classes */
+        .is-prepaid .toggle-thumb {
+            inset-inline-start: calc(50% + 4px);
+            background-color: #0068f9; /* tertiary-container */
+        }
+        .is-prepaid .text-postpaid {
+            color: #656464; /* on-secondary-container */
+        }
+        .is-prepaid .text-prepaid {
+            color: #ffffff;
+        }
+        
+        .is-postpaid .toggle-thumb {
+            inset-inline-start: 4px;
+        }
+        .is-postpaid .text-postpaid {
+            color: #ffffff;
+        }
+        .is-postpaid .text-prepaid {
+            color: #656464;
+        }
+        
+        .panel {
+            display: none;
+        }
+        .panel.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md" style="font-family:'Cairo',sans-serif;">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-dim border-b border-surface-container dark:border-on-surface-variant w-full docked full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-3 sm:gap-8">
+<a class="flex items-center gap-2" href="#">
+<span class="text-headline-md font-headline-md font-bold text-vodafone-red dark:text-primary-container">Vodafone</span>
+</a>
+<nav class="hidden md:flex gap-6">
+<a class="text-vodafone-red dark:text-primary-container border-b-2 border-vodafone-red pb-1 font-bold text-label-md hover:text-vodafone-red dark:hover:text-primary-container transition-colors" href="#">السجل</a>
+</nav>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
+<div class="text-center mb-10">
+<h1 class="text-headline-lg-mobile md:text-display-lg font-headline-lg-mobile md:font-display-lg text-on-surface mb-4">احسب فاتورتك بدقة</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">أداة احترافية لحساب الضرائب المستحقة على فواتير وشحنات الاتصالات بسهولة وشفافية.</p>
+</div>
+<!-- Calculator Container -->
+<div class="max-w-3xl mx-auto">
+<!-- Comparison Cards (Visual from image) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+
+<!-- Postpaid Card Visual -->
+<div class="bg-primary-container rounded-xl p-8 flex flex-col items-center justify-center text-center h-64 shadow-sm">
+<h2 class="text-headline-lg font-headline-lg text-on-primary mb-4">Postpaid</h2>
+<ul class="text-body-md font-body-md text-on-primary space-y-2 font-medium">
+<li>ضريبة (23%) + 11.5 جنيه</li>
+</ul>
+</div>
+<!-- Prepaid Card Visual -->
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col items-center justify-center text-center h-64 border border-outline-variant">
+<h2 class="text-headline-lg font-headline-lg text-on-surface mb-4 ">Prepaid</h2>
+<ul class="text-body-md font-body-md text-secondary space-y-2 opacity-80">
+<li>ضريبة أعلى (1.43)</li>
+</ul>
+</div>
+</div>
+
+<!-- Interactive Toggle -->
+<div class="mb-8 px-4 md:px-0">
+<div class="toggle-switch is-postpaid" id="mode-toggle" onclick="toggleMode()">
+<div class="toggle-thumb"></div>
+<div class="toggle-text-container">
+<div class="toggle-text text-postpaid">(Postpaid)</div>
+<div class="toggle-text text-prepaid"> (Prepaid)</div>
+</div>
+</div>
+</div>
+<!-- Postpaid Calculator Panel (Active by default) -->
+<div class="panel active bg-surface-container-lowest rounded-xl border border-outline-variant p-6 md:p-8 shadow-sm" id="postpaid-panel">
+<div class="mb-6">
+<label class="block text-label-md font-label-md text-on-surface-variant mb-2">قيمة الفاتورة الأساسية (ج.م)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-label-md">ج.م</span>
+<input class="w-full h-14 pl-12 pr-4 rounded-lg border border-outline-variant bg-surface text-body-lg font-body-lg focus:border-vodafone-red focus:ring-1 focus:ring-vodafone-red outline-none transition-colors" id="postpaid-input" oninput="calculatePostpaid()" type="number" value="100"/>
+</div>
+</div>
+<div class="space-y-4 mb-6 border-t border-outline-variant pt-6">
+<div class="flex justify-between items-center text-body-md font-body-md text-on-surface-variant">
+<span>المبلغ الأساسي</span>
+<span id="postpaid-base">100.00 ج.م</span>
+</div>
+<div class="flex justify-between items-center text-body-md font-body-md text-on-surface-variant">
+<span>الضريبة (23%)</span>
+<span id="postpaid-tax">23.00 ج.م</span>
+</div>
+<div class="flex justify-between items-center text-body-md font-body-md text-on-surface-variant">
+<span>رسوم ثابتة</span>
+<span>11.50 ج.م</span>
+</div>
+</div>
+<div class="bg-primary-container/10 rounded-lg p-6 flex flex-col items-center justify-center border border-primary-container/20">
+<span class="text-label-md font-label-md text-vodafone-red mb-1">إجمالي المبلغ المطلوب دفعه</span>
+<span class="text-headline-lg font-headline-lg text-vodafone-red" id="postpaid-total">134.50 ج.م</span>
+</div>
+</div>
+<!-- Prepaid Calculator Panel -->
+<div class="panel bg-surface-container-lowest rounded-xl border border-outline-variant p-6 md:p-8 shadow-sm" id="prepaid-panel">
+<div class="mb-6">
+<label class="block text-label-md font-label-md text-on-surface-variant mb-2">المبلغ المراد شحنه (الرصيد الصافي المطلوب)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-label-md">ج.م</span>
+<input class="w-full h-14 pl-12 pr-4 rounded-lg border border-outline-variant bg-surface text-body-lg font-body-lg focus:border-tertiary-container focus:ring-1 focus:ring-tertiary-container outline-none transition-colors" id="prepaid-input" oninput="calculatePrepaid()" type="number" value="100"/>
+</div>
+</div>
+<div class="space-y-4 mb-6 border-t border-outline-variant pt-6">
+<div class="flex justify-between items-center text-body-md font-body-md text-on-surface-variant">
+<span>الرصيد المطلوب</span>
+<span id="prepaid-base">100.00 ج.م</span>
+</div>
+<div class="flex justify-between items-center text-body-md font-body-md text-error">
+<span>قيمة الضريبة المخصومة</span>
+<span id="prepaid-tax-amount">43.00 ج.م</span>
+</div>
+</div>
+<div class="bg-surface-container-high rounded-lg p-6 flex flex-col items-center justify-center border border-outline-variant">
+<span class="text-label-md font-label-md text-on-surface mb-1">قيمة الكارت المطلوب شراؤه</span>
+<span class="text-headline-lg font-headline-lg text-on-surface" id="prepaid-total">143.00 ج.م</span>
+<span class="text-label-sm font-label-sm text-secondary mt-2">معامل الضرب ≈ 1.43</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface mt-auto full-width bottom">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-base gap-gutter max-w-container-max mx-auto text-center md:text-left">
+<span class="text-label-sm font-label-sm text-on-secondary-container dark:text-secondary-fixed-dim">© 2026 coded and designed by Mahd Mohamed . All rights reserved</span>
+<div class="flex gap-4">
+<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:underline hover:text-vodafone-red dark:hover:text-primary-container opacity-80 hover:opacity-100 transition-opacity text-label-sm font-label-sm" href="#">Legal</a>
+<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:underline hover:text-vodafone-red dark:hover:text-primary-container opacity-80 hover:opacity-100 transition-opacity text-label-sm font-label-sm" href="#">Privacy Policy</a>
+<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:underline hover:text-vodafone-red dark:hover:text-primary-container opacity-80 hover:opacity-100 transition-opacity text-label-sm font-label-sm" href="#">Terms &amp; Conditions</a>
+<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:underline hover:text-vodafone-red dark:hover:text-primary-container opacity-80 hover:opacity-100 transition-opacity text-label-sm font-label-sm" href="#">Accessibility</a>
+<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:underline hover:text-vodafone-red dark:hover:text-primary-container opacity-80 hover:opacity-100 transition-opacity text-label-sm font-label-sm" href="#">Cookies</a>
+</div>
+</div>
+</footer>
+<script>
+        // Set initial state based on toggle class
+        let isPostpaid = document.getElementById('mode-toggle').classList.contains('is-postpaid');
+
+        function toggleMode() {
+            const toggle = document.getElementById('mode-toggle');
+            const postpaidPanel = document.getElementById('postpaid-panel');
+            const prepaidPanel = document.getElementById('prepaid-panel');
+            
+            isPostpaid = !isPostpaid;
+            
+            if (isPostpaid) {
+                toggle.classList.remove('is-prepaid');
+                toggle.classList.add('is-postpaid');
+                prepaidPanel.classList.remove('active');
+                postpaidPanel.classList.add('active');
+                calculatePostpaid();
+            } else {
+                toggle.classList.remove('is-postpaid');
+                toggle.classList.add('is-prepaid');
+                postpaidPanel.classList.remove('active');
+                prepaidPanel.classList.add('active');
+                calculatePrepaid();
+            }
+        }
+
+        function formatCurrency(num) {
+            return num.toFixed(2) + ' ج.م';
+        }
+
+        function calculatePostpaid() {
+            const inputVal = parseFloat(document.getElementById('postpaid-input').value) || 0;
+            const tax = inputVal * 0.23;
+            const fixedFee = 11.5;
+            const total = inputVal + tax + fixedFee;
+
+            document.getElementById('postpaid-base').innerText = formatCurrency(inputVal);
+            document.getElementById('postpaid-tax').innerText = formatCurrency(tax);
+            document.getElementById('postpaid-total').innerText = formatCurrency(total);
+        }
+
+        function calculatePrepaid() {
+            const inputVal = parseFloat(document.getElementById('prepaid-input').value) || 0;
+            const factor = 1.43;
+            const total = inputVal * factor;
+            const taxAmount = total - inputVal;
+
+            document.getElementById('prepaid-base').innerText = formatCurrency(inputVal);
+            document.getElementById('prepaid-tax-amount').innerText = formatCurrency(taxAmount);
+            document.getElementById('prepaid-total').innerText = formatCurrency(total);
+        }
+
+        // Initialize calculations
+        calculatePostpaid();
+        calculatePrepaid();
+    </script>
+</body></html>
