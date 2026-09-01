@@ -144,3 +144,28 @@ function switchPackageTab(tab) {
         flexContent.classList.add('hidden');
     }
 }
+
+function switchRulesTab(tab) {
+    const rulesTab = document.getElementById('tab-rules');
+    const authorizationTab = document.getElementById('tab-authorization');
+    const rulesContent = document.getElementById('rules-content');
+    const authorizationContent = document.getElementById('authorization-content');
+    const subtitle = document.getElementById('rules-subtitle');
+    const title = document.getElementById('rules-title');
+
+    if (tab === 'rules') {
+        rulesTab.className = 'px-6 py-2 rounded-lg text-label-md font-bold transition-all duration-200 bg-vodafone-red text-white shadow-sm';
+        authorizationTab.className = 'px-6 py-2 rounded-lg text-label-md font-bold transition-all duration-200 text-secondary hover:text-on-surface';
+        rulesContent.classList.remove('hidden');
+        authorizationContent.classList.add('hidden');
+        title.textContent = 'القواعد';
+        subtitle.textContent = 'القواعد والشروط الإلزامية للتعاملات داخل الفروع وفقاً لهيئة تنظيم الاتصالات (NTRA)';
+    } else {
+        authorizationTab.className = 'px-6 py-2 rounded-lg text-label-md font-bold transition-all duration-200 bg-vodafone-red text-white shadow-sm';
+        rulesTab.className = 'px-6 py-2 rounded-lg text-label-md font-bold transition-all duration-200 text-secondary hover:text-on-surface';
+        authorizationContent.classList.remove('hidden');
+        rulesContent.classList.add('hidden');
+        title.textContent = 'التوكيلات';
+        subtitle.textContent = 'شروط التوكيلات العامة والخاصة والمستندات المطلوبة';
+    }
+}

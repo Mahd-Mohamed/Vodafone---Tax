@@ -321,10 +321,18 @@
 <div class="max-w-3xl mx-auto">
 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
 <div class="text-start">
-<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg text-on-surface mb-1">القواعد</h1>
-<p class="text-body-md font-body-md text-on-surface-variant">القواعد والشروط الإلزامية للتعاملات داخل الفروع وفقاً لهيئة تنظيم الاتصالات (NTRA)</p>
+<h1 id="rules-title" class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg text-on-surface mb-1">القواعد</h1>
+<p id="rules-subtitle" class="text-body-md font-body-md text-on-surface-variant">القواعد والشروط الإلزامية للتعاملات داخل الفروع وفقاً لهيئة تنظيم الاتصالات (NTRA)</p>
+</div>
+<div class="flex-shrink-0">
+<div class="inline-flex bg-surface-container-high rounded-xl p-1">
+<button id="tab-rules" class="px-6 py-2 rounded-lg text-label-md font-bold transition-all duration-200 bg-vodafone-red text-white shadow-sm" onclick="switchRulesTab('rules')">القواعد</button>
+<button id="tab-authorization" class="px-6 py-2 rounded-lg text-label-md font-bold transition-all duration-200 text-secondary hover:text-on-surface" onclick="switchRulesTab('authorization')">التوكيلات</button>
 </div>
 </div>
+</div>
+<!-- Rules Content -->
+<div id="rules-content">
 <div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
 <div class="bg-vodafone-red px-6 md:px-8 py-6 flex items-center gap-4">
 <span class="material-symbols-outlined text-white text-3xl">rule</span>
@@ -350,8 +358,64 @@
 </ul>
 </div>
 </div>
+<!-- Authorization Content -->
+<div id="authorization-content" class="hidden">
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="bg-vodafone-red px-6 md:px-8 py-6 flex items-center gap-4">
+<span class="material-symbols-outlined text-white text-3xl">description</span>
+<h2 class="text-headline-lg font-headline-lg text-white">التوكيلات</h2>
+</div>
+<div class="px-6 md:px-8 py-6">
+<p class="text-body-md font-body-md text-on-surface-variant mb-6">سواء كان التوكيل عام أو خاص يجب الالتزام بالشروط التالية:</p>
+<ul class="space-y-4">
+<li class="flex items-start gap-4">
+<span class="flex items-center justify-center h-10 w-10 shrink-0 rounded-full bg-vodafone-red text-white text-label-md font-label-md font-bold">1</span>
+<p class="text-body-lg font-body-lg text-on-surface">يجب أن يكون موجهه لشركة "فودافون مصر"</p>
+</li>
+<li class="flex items-start gap-4">
+<span class="flex items-center justify-center h-10 w-10 shrink-0 rounded-full bg-vodafone-red text-white text-label-md font-label-md font-bold">2</span>
+<p class="text-body-lg font-body-lg text-on-surface">ذكر رقم الهاتف المخصص بالإجراءات</p>
+</li>
+<li class="flex items-start gap-4">
+<span class="flex items-center justify-center h-10 w-10 shrink-0 rounded-full bg-vodafone-red text-white text-label-md font-label-md font-bold">3</span>
+<div>
+<p class="text-body-lg font-body-lg text-on-surface mb-3">يتم ذكر الغرض من التوكيل مثل:</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-vodafone-red/10 text-vodafone-red text-label-sm font-label-sm px-3 py-1.5 rounded-lg">شراء خط</span>
+<span class="bg-vodafone-red/10 text-vodafone-red text-label-sm font-label-sm px-3 py-1.5 rounded-lg">تغيير ملكية</span>
+<span class="bg-vodafone-red/10 text-vodafone-red text-label-sm font-label-sm px-3 py-1.5 rounded-lg">تغيير شريحة</span>
+<span class="bg-vodafone-red/10 text-vodafone-red text-label-sm font-label-sm px-3 py-1.5 rounded-lg">إلغاء/إشتراك إنترنت منزلي</span>
+</div>
+</div>
+</li>
+</ul>
+<div class="mt-8 border-t border-outline-variant pt-6">
+<div class="flex items-start gap-3 mb-4">
+<span class="material-symbols-outlined text-vodafone-red text-xl mt-0.5 shrink-0">info</span>
+<p class="text-body-lg font-body-lg text-on-surface">يأخذ أصل التوكيل من العميل</p>
+</div>
+<div class="flex items-start gap-3 mb-4">
+<span class="material-symbols-outlined text-vodafone-red text-xl mt-0.5 shrink-0">info</span>
+<p class="text-body-lg font-body-lg text-on-surface">ولو التوكيل يحتوي على أغراض أخرى لجهات أخرى، يأخذ صورة ضوئية منه وكتابة الإقرار التالي:</p>
+</div>
+<div class="flex items-start gap-3 mb-6">
+<span class="material-symbols-outlined text-vodafone-red text-xl mt-0.5 shrink-0">block</span>
+<p class="text-body-lg font-body-lg text-vodafone-red font-bold">غير متاح استخدام اي توكيلات في تعاملات فودافون كاش</p>
+</div>
+<div class="bg-surface-container-high rounded-xl p-6 md:p-8">
+<h3 class="text-headline-md font-headline-md text-on-surface text-center mb-6">اقرار خاص بالتويكلات</h3>
+<div class="space-y-4 text-body-md font-body-md text-on-surface" dir="rtl">
+<p>اقر أنا: .................................</p>
+<p>رقم بطاقة :....................</p>
+<p>ان التوكيل المرفق صورته صحيح وسارى وان الموكل مازال على قيد الحياة وفى حالة ظهور غير ذلك اتحمل كافة المسؤلية الجنائية و المدنية.</p>
+<p>توقيع العميل...............................</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<!-- Packages Page -->
 <section id="page-packages" class="hidden flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
 <div class="text-start">
