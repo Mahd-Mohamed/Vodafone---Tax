@@ -271,6 +271,18 @@
 <a id="nav-log" class="text-secondary dark:text-secondary-fixed-dim font-medium text-label-md hover:text-vodafone-red dark:hover:text-primary-container transition-colors cursor-pointer" onclick="showPage('calculator')">الضريبة</a>
 </nav>
 </div>
+<button id="menu-btn" class="md:hidden flex items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:text-vodafone-red transition-colors scale-95 active:scale-90 duration-150" onclick="toggleMenu()" aria-label="القائمة">
+<span id="menu-icon" class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-surface dark:bg-surface-dim border-t border-surface-container dark:border-on-surface-variant">
+<nav class="flex flex-col gap-1 px-margin-mobile py-4">
+<a id="nav-m-rules" class="text-vodafone-red font-bold text-label-md px-3 py-3 rounded-lg bg-vodafone-red/10 hover:bg-vodafone-red/15 transition-colors cursor-pointer" onclick="showPage('rules')">القواعد</a>
+<a id="nav-m-lines" class="text-secondary dark:text-secondary-fixed-dim font-medium text-label-md px-3 py-3 rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer" onclick="showPage('lines')">الخطوط</a>
+<a id="nav-m-packages" class="text-secondary dark:text-secondary-fixed-dim font-medium text-label-md px-3 py-3 rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer" onclick="showPage('packages')">الباقات</a>
+<a id="nav-m-log" class="text-secondary dark:text-secondary-fixed-dim font-medium text-label-md px-3 py-3 rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer" onclick="showPage('calculator')">الضريبة</a>
+</nav>
 </div>
 </header>
 <!-- Main Content -->
@@ -778,6 +790,15 @@
 <script>
         const NAV_ACTIVE_CLASS = 'text-vodafone-red dark:text-primary-container border-b-2 border-vodafone-red pb-1 font-bold text-label-md hover:text-vodafone-red dark:hover:text-primary-container transition-colors cursor-pointer';
         const NAV_INACTIVE_CLASS = 'text-secondary dark:text-secondary-fixed-dim font-medium text-label-md hover:text-vodafone-red dark:hover:text-primary-container transition-colors cursor-pointer';
+        const MOBILE_ACTIVE_CLASS = 'text-vodafone-red font-bold text-label-md px-3 py-3 rounded-lg bg-vodafone-red/10 hover:bg-vodafone-red/15 transition-colors cursor-pointer';
+        const MOBILE_INACTIVE_CLASS = 'text-secondary dark:text-secondary-fixed-dim font-medium text-label-md px-3 py-3 rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer';
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+        }
 
         function showPage(name) {
             const calculator = document.getElementById('page-calculator');
@@ -788,6 +809,10 @@
             const navRules = document.getElementById('nav-rules');
             const navPackages = document.getElementById('nav-packages');
             const navLines = document.getElementById('nav-lines');
+            const navMLog = document.getElementById('nav-m-log');
+            const navMRules = document.getElementById('nav-m-rules');
+            const navMPackages = document.getElementById('nav-m-packages');
+            const navMLines = document.getElementById('nav-m-lines');
 
             calculator.classList.add('hidden');
             rules.classList.add('hidden');
@@ -797,20 +822,33 @@
             navRules.className = NAV_INACTIVE_CLASS;
             navPackages.className = NAV_INACTIVE_CLASS;
             navLines.className = NAV_INACTIVE_CLASS;
+            navMLog.className = MOBILE_INACTIVE_CLASS;
+            navMRules.className = MOBILE_INACTIVE_CLASS;
+            navMPackages.className = MOBILE_INACTIVE_CLASS;
+            navMLines.className = MOBILE_INACTIVE_CLASS;
 
             if (name === 'rules') {
                 rules.classList.remove('hidden');
                 navRules.className = NAV_ACTIVE_CLASS;
+                navMRules.className = MOBILE_ACTIVE_CLASS;
             } else if (name === 'packages') {
                 packages.classList.remove('hidden');
                 navPackages.className = NAV_ACTIVE_CLASS;
+                navMPackages.className = MOBILE_ACTIVE_CLASS;
             } else if (name === 'lines') {
                 lines.classList.remove('hidden');
                 navLines.className = NAV_ACTIVE_CLASS;
+                navMLines.className = MOBILE_ACTIVE_CLASS;
             } else {
                 calculator.classList.remove('hidden');
                 navLog.className = NAV_ACTIVE_CLASS;
+                navMLog.className = MOBILE_ACTIVE_CLASS;
             }
+
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.add('hidden');
+            icon.textContent = 'menu';
         }
 
         // Set initial state based on toggle class
