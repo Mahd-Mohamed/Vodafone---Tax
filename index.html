@@ -176,12 +176,13 @@
 <header class="bg-surface dark:bg-surface-dim border-b border-surface-container dark:border-on-surface-variant w-full docked full-width sticky top-0 z-50">
 <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto h-16">
 <div class="flex items-center gap-3 sm:gap-8">
-<a class="flex items-center gap-2" href="#" onclick="showPage('rules')">
+<a class="flex items-center gap-2" href="#" onclick="showPage('home')">
 <img alt="Vodafone" class="w-8 h-8" src="vodafone-icon.svg"/>
 <span class="text-headline-md font-headline-md font-bold text-vodafone-red dark:text-primary-container">Vodafone</span>
 </a>
 <nav class="hidden md:flex gap-6">
-<a id="nav-rules" class="text-vodafone-red dark:text-primary-container border-b-2 border-vodafone-red pb-1 font-bold text-label-md hover:text-vodafone-red dark:hover:text-primary-container transition-colors cursor-pointer" onclick="showPage('rules')">القواعد</a>
+<a id="nav-home" class="text-vodafone-red dark:text-primary-container border-b-2 border-vodafone-red pb-1 font-bold text-label-md hover:text-vodafone-red dark:hover:text-primary-container transition-colors cursor-pointer" onclick="showPage('home')">الرئيسية</a>
+<a id="nav-rules" class="text-secondary dark:text-secondary-fixed-dim font-medium text-label-md hover:text-vodafone-red dark:hover:text-primary-container transition-colors cursor-pointer" onclick="showPage('rules')">القواعد</a>
 <a id="nav-lines" class="text-secondary dark:text-secondary-fixed-dim font-medium text-label-md hover:text-vodafone-red dark:hover:text-primary-container transition-colors cursor-pointer" onclick="showPage('lines')">الخطوط</a>
 <a id="nav-packages" class="text-secondary dark:text-secondary-fixed-dim font-medium text-label-md hover:text-vodafone-red dark:hover:text-primary-container transition-colors cursor-pointer" onclick="showPage('packages')">الباقات</a>
 <a id="nav-log" class="text-secondary dark:text-secondary-fixed-dim font-medium text-label-md hover:text-vodafone-red dark:hover:text-primary-container transition-colors cursor-pointer" onclick="showPage('calculator')">الضريبة</a>
@@ -194,7 +195,8 @@
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden md:hidden bg-surface dark:bg-surface-dim border-t border-surface-container dark:border-on-surface-variant">
 <nav class="flex flex-col gap-1 px-margin-mobile py-4">
-<a id="nav-m-rules" class="text-vodafone-red font-bold text-label-md px-3 py-3 rounded-lg bg-vodafone-red/10 hover:bg-vodafone-red/15 transition-colors cursor-pointer" onclick="showPage('rules')">القواعد</a>
+<a id="nav-m-home" class="text-vodafone-red font-bold text-label-md px-3 py-3 rounded-lg bg-vodafone-red/10 hover:bg-vodafone-red/15 transition-colors cursor-pointer" onclick="showPage('home')">الرئيسية</a>
+<a id="nav-m-rules" class="text-secondary dark:text-secondary-fixed-dim font-medium text-label-md px-3 py-3 rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer" onclick="showPage('rules')">القواعد</a>
 <a id="nav-m-lines" class="text-secondary dark:text-secondary-fixed-dim font-medium text-label-md px-3 py-3 rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer" onclick="showPage('lines')">الخطوط</a>
 <a id="nav-m-packages" class="text-secondary dark:text-secondary-fixed-dim font-medium text-label-md px-3 py-3 rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer" onclick="showPage('packages')">الباقات</a>
 <a id="nav-m-log" class="text-secondary dark:text-secondary-fixed-dim font-medium text-label-md px-3 py-3 rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer" onclick="showPage('calculator')">الضريبة</a>
@@ -296,7 +298,26 @@
 </div>
 </main>
 <!-- NTRA & Vodafone Rules Page -->
-<section id="page-rules" class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
+<!-- Home Page -->
+<section id="page-home" class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
+<div class="max-w-6xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant shadow-md overflow-hidden">
+<div class="bg-gradient-to-r from-vodafone-red to-primary px-6 md:px-8 py-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-white">play_circle</span>
+<h2 class="text-headline-md font-headline-md text-white">فيديو تعريفي</h2>
+</div>
+<video class="w-full aspect-video object-cover bg-deep-black block" autoplay controls loop muted playsinline preload="metadata" src="intro.mp4"></video>
+</div>
+<div class="text-start">
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg text-on-surface mb-4" dir="ltr">About us</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant" dir="ltr">First is a professional Retail Management Company that was established in 2006 in partnership with Vodafone Egypt</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Rules Page -->
+<section id="page-rules" class="hidden flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
 <div class="max-w-3xl mx-auto">
 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
 <div class="text-start">
@@ -792,15 +813,8 @@
 </section>
 <!-- Footer -->
 <footer class="bg-surface-container-low dark:bg-inverse-surface mt-auto full-width bottom">
-<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-base gap-gutter max-w-container-max mx-auto text-center md:text-left">
+<div class="flex items-center justify-center w-full px-margin-mobile md:px-margin-desktop py-base max-w-container-max mx-auto text-center">
 <span class="text-label-sm font-label-sm text-on-secondary-container dark:text-secondary-fixed-dim">© 2026 Coded And Designed by Mahd Mohamed . All rights reserved</span>
-<div class="flex gap-4">
-<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:underline hover:text-vodafone-red dark:hover:text-primary-container opacity-80 hover:opacity-100 transition-opacity text-label-sm font-label-sm" href="#">Legal</a>
-<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:underline hover:text-vodafone-red dark:hover:text-primary-container opacity-80 hover:opacity-100 transition-opacity text-label-sm font-label-sm" href="#">Privacy Policy</a>
-<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:underline hover:text-vodafone-red dark:hover:text-primary-container opacity-80 hover:opacity-100 transition-opacity text-label-sm font-label-sm" href="#">Terms &amp; Conditions</a>
-<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:underline hover:text-vodafone-red dark:hover:text-primary-container opacity-80 hover:opacity-100 transition-opacity text-label-sm font-label-sm" href="#">Accessibility</a>
-<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:underline hover:text-vodafone-red dark:hover:text-primary-container opacity-80 hover:opacity-100 transition-opacity text-label-sm font-label-sm" href="#">Cookies</a>
-</div>
 </div>
 </footer>
 <script src="index.js"></script>

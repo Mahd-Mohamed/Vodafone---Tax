@@ -12,32 +12,42 @@ function toggleMenu() {
 
 function showPage(name) {
     const calculator = document.getElementById('page-calculator');
+    const home = document.getElementById('page-home');
     const rules = document.getElementById('page-rules');
     const packages = document.getElementById('page-packages');
     const lines = document.getElementById('page-lines');
     const navLog = document.getElementById('nav-log');
+    const navHome = document.getElementById('nav-home');
     const navRules = document.getElementById('nav-rules');
     const navPackages = document.getElementById('nav-packages');
     const navLines = document.getElementById('nav-lines');
     const navMLog = document.getElementById('nav-m-log');
+    const navMHome = document.getElementById('nav-m-home');
     const navMRules = document.getElementById('nav-m-rules');
     const navMPackages = document.getElementById('nav-m-packages');
     const navMLines = document.getElementById('nav-m-lines');
 
     calculator.classList.add('hidden');
+    home.classList.add('hidden');
     rules.classList.add('hidden');
     packages.classList.add('hidden');
     lines.classList.add('hidden');
     navLog.className = NAV_INACTIVE_CLASS;
+    navHome.className = NAV_INACTIVE_CLASS;
     navRules.className = NAV_INACTIVE_CLASS;
     navPackages.className = NAV_INACTIVE_CLASS;
     navLines.className = NAV_INACTIVE_CLASS;
     navMLog.className = MOBILE_INACTIVE_CLASS;
+    navMHome.className = MOBILE_INACTIVE_CLASS;
     navMRules.className = MOBILE_INACTIVE_CLASS;
     navMPackages.className = MOBILE_INACTIVE_CLASS;
     navMLines.className = MOBILE_INACTIVE_CLASS;
 
-    if (name === 'rules') {
+    if (name === 'home') {
+        home.classList.remove('hidden');
+        navHome.className = NAV_ACTIVE_CLASS;
+        navMHome.className = MOBILE_ACTIVE_CLASS;
+    } else if (name === 'rules') {
         rules.classList.remove('hidden');
         navRules.className = NAV_ACTIVE_CLASS;
         navMRules.className = MOBILE_ACTIVE_CLASS;
